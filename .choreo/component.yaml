@@ -3,5 +3,5 @@ schemaVersion: 1.0
 endpoints:
 - name: mfd
   service:
-     port: 300
+     port: 3000
   type: REST
