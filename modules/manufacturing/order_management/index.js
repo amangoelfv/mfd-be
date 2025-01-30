@@ -136,7 +136,7 @@ router.get('/plant_head', authenticate(['plant_head']), async (req, res) => {
   try {
 
     // fetch orders
-    const orders = await Order.find({ plant_head: req.user.id }).populate('products.product') || [];
+    const orders = await Order.find({ plant_head: req.user.id }).sort({createdAt: -1}).populate('products.product') || [];
     res.status(201).json(orders);
   } catch (error) {
     console.error(error);

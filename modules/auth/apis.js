@@ -13,13 +13,13 @@ export const loginUser = async (email, password) => {
     // Find user by email
     const user = await User.findOne({ email });
     if (!user) {
-      throw new Error('Invalid email or password');
+      throw new Error('Invalid email');
     }
 
     // Compare passwords
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      throw new Error('Invalid email or password');
+      throw new Error('Invalid password');
     }
 
     // Generate JWT
